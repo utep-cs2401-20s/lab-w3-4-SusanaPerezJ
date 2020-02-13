@@ -24,8 +24,6 @@ public class GameOfLife {
                 previous[i][j] = gameBoard[i][j];
             }
         }
-        //size of a = a.length
-        //board to size
         printGameOfLife(previous);
 
     }
@@ -111,7 +109,7 @@ public class GameOfLife {
             }
         }
         if(row + 1 < size && col + 1 < size){
-            //down rigth
+            //down right
             if(previous[row+1][col+1]==1){
                 neighbors++;
             }
@@ -119,7 +117,7 @@ public class GameOfLife {
         return neighbors;
     }
     public int[][] evolution(int n){
-        // o Transforms the board into the board after n steps of evolution (i.e., n successive calls to oneStep).
+        // Transforms the board into the board after n steps of evolution (i.e., n successive calls to oneStep).
         while(n > 0){
             oneStep();
             n--;
