@@ -10,12 +10,12 @@ public class TorusGameOfLife extends GameOfLife {
         int row = size;
         int col = size;
         board = new int[row][col];
-
     }
     @Override
     public int numOfNeighbors(int row, int col){
         //use modulus
         int neighbors = 0;
+
         return neighbors;
     }
 
