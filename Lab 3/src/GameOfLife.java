@@ -19,22 +19,23 @@ public class GameOfLife {
         //for non squared boards
         int size2 = gameBoard[0].length;
         previous = new int[size][size2];
+        board = new int[size][size2];
         for(int i = 0; i < previous.length; i++){
             for(int j = 0; j< previous[i].length; j++) {
                 previous[i][j] = gameBoard[i][j];
             }
         }
-        printGameOfLife(previous);
-
+       //printGameOfLife(previous);
     }
     public int[][] getBoard() {
         return previous;
     }
     public void oneStep(){
         //transform current board into next shape
+        int size2 = previous[0].length;
         //rules
         for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++) {
+            for(int j = 0; j < size2; j++) {
                 //check live
                 if (previous[i][j] == 1) {
                     //check other rules
@@ -54,15 +55,15 @@ public class GameOfLife {
             }
         }
         for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+            for(int j = 0; j < size2; j++){
                 previous[i][j] = board[i][j];
             }
         }
     }
-
     //I got help from Antoine for this method
     public int numOfNeighbors(int row, int col){
         int neighbors = 0;
+        int size2 = previous[0].length;
         //rows
         if(row - 1 >= 0){
             //up
@@ -83,7 +84,7 @@ public class GameOfLife {
                 neighbors++;
             }
         }
-        if(col + 1 < size){
+        if(col + 1 < size2){
             //right
             if(previous[row][col+1]==1){
                 neighbors++;
@@ -96,8 +97,8 @@ public class GameOfLife {
                 neighbors++;
             }
         }
-        if(row - 1 >= 0 && col + 1 < size){
-            //up rigth
+        if(row - 1 >= 0 && col + 1 < size2){
+            //up right
             if(previous[row-1][col+1]==1){
                 neighbors++;
             }
@@ -108,7 +109,7 @@ public class GameOfLife {
                 neighbors++;
             }
         }
-        if(row + 1 < size && col + 1 < size){
+        if(row + 1 < size && col + 1 < size2){
             //down right
             if(previous[row+1][col+1]==1){
                 neighbors++;
@@ -122,7 +123,7 @@ public class GameOfLife {
             oneStep();
             n--;
         }
-        printGameOfLife(board);
+        //printGameOfLife(board);
         return board;
     }
     public void printGameOfLife(int[][] boardToPrint){
