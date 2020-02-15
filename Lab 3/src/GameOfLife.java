@@ -25,7 +25,6 @@ public class GameOfLife {
                 previous[i][j] = gameBoard[i][j];
             }
         }
-       //printGameOfLife(previous);
     }
     public int[][] getBoard() {
         return previous;
@@ -123,7 +122,6 @@ public class GameOfLife {
             oneStep();
             n--;
         }
-        //printGameOfLife(board);
         return board;
     }
     public void printGameOfLife(int[][] boardToPrint){
